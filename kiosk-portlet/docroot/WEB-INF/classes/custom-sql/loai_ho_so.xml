@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<custom-sql>
+	<sql	
+		id="com.alpha.portlet.danh_muc.service.persistence.LoaiHoSoFinder.countBy_C_G_H_T_M_M">
+		<![CDATA[
+			SELECT COUNT(*) AS COUNT_VALUE 
+			FROM alpha_dm_loaihoso
+			WHERE true
+			AND groupId = ?
+			AND hoatDong = ?
+			AND linhVucId = ?
+			AND
+				(	
+					(LOWER(ten) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(LOWER(ma) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(LOWER(moTa) LIKE ? [$AND_OR_NULL_CHECK$])
+				)
+				
+		]]>
+	</sql>
+	<sql
+		id="com.alpha.portlet.danh_muc.service.persistence.LoaiHoSoFinder.findBy_C_G_H_T_M_M">
+		<![CDATA[
+			SELECT alpha_dm_loaihoso.*
+			FROM alpha_dm_loaihoso
+			WHERE true
+			AND groupId = ?
+			AND hoatDong = ?
+			AND linhVucId = ?
+			AND
+				(	
+					(LOWER(ten) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(LOWER(ma) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(LOWER(moTa) LIKE ? [$AND_OR_NULL_CHECK$])
+				)
+				
+		]]>
+	</sql>
+</custom-sql>

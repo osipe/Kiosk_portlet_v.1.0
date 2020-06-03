@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.alpha.portlet.danh_muc">
+	<author>darkn</author>
+	<namespace>DanhMuc</namespace>
+	
+	<entity name="LinhVuc" local-service="true" remote-service="true" table="alpha_dm_linhvuc">
+
+		<!-- PK fields -->
+
+		<column name="linhVucId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="ten" type="String" />
+		<column name="ma" type="String" />
+		<column name="moTa" type="String" />
+		<column name="hoatDong" type="boolean" />
+		<column name="doUuTien" type="int" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="linhVucId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="GroupId_Ma" return-type="LinhVuc">
+			<finder-column name="groupId" />
+			<finder-column name="ma" />
+		</finder>
+		<finder name="HoatDong" return-type="Collection">
+			<finder-column name="hoatDong" />
+		</finder>
+		<finder name="GroupId_HoatDong" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="hoatDong" />
+		</finder>
+		<finder name="CompanyId_HoatDong" return-type="Collection">
+			<finder-column name="companyId" />
+			<finder-column name="hoatDong" />
+		</finder>
+	</entity>
+	<entity name="LoaiHoSo" local-service="true" remote-service="true" table="alpha_dm_loaihoso">
+
+		<!-- PK fields -->
+
+		<column name="loaiHoSoId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="linhVucId" type="long" />
+		<column name="ten" type="String" />
+		<column name="ma" type="String" />
+		<column name="moTa" type="String" />
+		<column name="hoatDong" type="boolean" />
+		<column name="doUuTien" type="int" />
+		
+		<column name="baiVietURL" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="linhVucId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="GroupId_Ma" return-type="LoaiHoSo">
+			<finder-column name="groupId" />
+			<finder-column name="ma" />
+		</finder>
+		<finder name="GroupId_HoatDong" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="hoatDong" />
+		</finder>
+		<finder name="LinhVucId" return-type="Collection">
+			<finder-column name="linhVucId" />
+		</finder>
+	</entity>
+</service-builder>

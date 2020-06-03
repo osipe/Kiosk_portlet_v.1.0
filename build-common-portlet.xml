@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="build-common-portlet" xmlns:antelope="antlib:ise.antelope.tasks">
+	<import file="../build-common-plugin.xml" />
+	<!--Open minhnv-->
+	<!-- add file jar ascii2native.jar into lib-->
+	<import file="nss-build-common-portlet.xml" />
+	
+	<!-- Close minhnv -->
+</project>

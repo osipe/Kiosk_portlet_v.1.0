@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.alpha.portlet.util.DocumentURLUtil" class="com.alpha.portlet.util.DocumentURLUtil">
+		<property name="documentURL">
+			<bean class="com.alpha.portlet.dmdc.util.DocumentURLImpl" />
+		</property>
+	</bean>
+	<bean id="com.alpha.portlet.security.SecureIDUtil" class="com.alpha.portlet.security.SecureIDUtil">
+		<property name="secureID">
+			<bean class="com.alpha.portlet.dmdc.security.SecureIDImpl" />
+		</property>
+	</bean>
+	<bean id="com.alpha.portlet.danh_muc.service.LinhVucLocalService" class="com.alpha.portlet.danh_muc.service.impl.LinhVucLocalServiceImpl" />
+	<bean id="com.alpha.portlet.danh_muc.service.LinhVucService" class="com.alpha.portlet.danh_muc.service.impl.LinhVucServiceImpl" />
+	<bean id="com.alpha.portlet.danh_muc.service.persistence.LinhVucPersistence" class="com.alpha.portlet.danh_muc.service.persistence.LinhVucPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.danh_muc.service.persistence.LinhVucFinder" class="com.alpha.portlet.danh_muc.service.persistence.LinhVucFinderImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.danh_muc.service.LoaiHoSoLocalService" class="com.alpha.portlet.danh_muc.service.impl.LoaiHoSoLocalServiceImpl" />
+	<bean id="com.alpha.portlet.danh_muc.service.LoaiHoSoService" class="com.alpha.portlet.danh_muc.service.impl.LoaiHoSoServiceImpl" />
+	<bean id="com.alpha.portlet.danh_muc.service.persistence.LoaiHoSoPersistence" class="com.alpha.portlet.danh_muc.service.persistence.LoaiHoSoPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.danh_muc.service.persistence.LoaiHoSoFinder" class="com.alpha.portlet.danh_muc.service.persistence.LoaiHoSoFinderImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.CauHoiLocalService" class="com.alpha.portlet.danh_gia_hai_long.service.impl.CauHoiLocalServiceImpl" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.CauHoiService" class="com.alpha.portlet.danh_gia_hai_long.service.impl.CauHoiServiceImpl" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.persistence.CauHoiPersistence" class="com.alpha.portlet.danh_gia_hai_long.service.persistence.CauHoiPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.persistence.CauHoiFinder" class="com.alpha.portlet.danh_gia_hai_long.service.persistence.CauHoiFinderImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.DanhGiaHaiLongLocalService" class="com.alpha.portlet.danh_gia_hai_long.service.impl.DanhGiaHaiLongLocalServiceImpl" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.DanhGiaHaiLongService" class="com.alpha.portlet.danh_gia_hai_long.service.impl.DanhGiaHaiLongServiceImpl" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.persistence.DanhGiaHaiLongPersistence" class="com.alpha.portlet.danh_gia_hai_long.service.persistence.DanhGiaHaiLongPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.TraLoiLocalService" class="com.alpha.portlet.danh_gia_hai_long.service.impl.TraLoiLocalServiceImpl" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.TraLoiService" class="com.alpha.portlet.danh_gia_hai_long.service.impl.TraLoiServiceImpl" />
+	<bean id="com.alpha.portlet.danh_gia_hai_long.service.persistence.TraLoiPersistence" class="com.alpha.portlet.danh_gia_hai_long.service.persistence.TraLoiPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.dmdc.service.BieuMauBaoCaoLocalService" class="com.alpha.portlet.dmdc.service.impl.BieuMauBaoCaoLocalServiceImpl" />
+	<bean id="com.alpha.portlet.dmdc.service.BieuMauBaoCaoService" class="com.alpha.portlet.dmdc.service.impl.BieuMauBaoCaoServiceImpl" />
+	<bean id="com.alpha.portlet.dmdc.service.persistence.BieuMauBaoCaoPersistence" class="com.alpha.portlet.dmdc.service.persistence.BieuMauBaoCaoPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.dmdc.service.CauHinhLocalService" class="com.alpha.portlet.dmdc.service.impl.CauHinhLocalServiceImpl" />
+	<bean id="com.alpha.portlet.dmdc.service.CauHinhService" class="com.alpha.portlet.dmdc.service.impl.CauHinhServiceImpl" />
+	<bean id="com.alpha.portlet.dmdc.service.persistence.CauHinhPersistence" class="com.alpha.portlet.dmdc.service.persistence.CauHinhPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.dmdc.service.FileDinhKemLocalService" class="com.alpha.portlet.dmdc.service.impl.FileDinhKemLocalServiceImpl" />
+	<bean id="com.alpha.portlet.dmdc.service.FileDinhKemService" class="com.alpha.portlet.dmdc.service.impl.FileDinhKemServiceImpl" />
+	<bean id="com.alpha.portlet.dmdc.service.persistence.FileDinhKemPersistence" class="com.alpha.portlet.dmdc.service.persistence.FileDinhKemPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.dmdc.service.PhanQuyenLocalService" class="com.alpha.portlet.dmdc.service.impl.PhanQuyenLocalServiceImpl" />
+	<bean id="com.alpha.portlet.dmdc.service.PhanQuyenService" class="com.alpha.portlet.dmdc.service.impl.PhanQuyenServiceImpl" />
+	<bean id="com.alpha.portlet.dmdc.service.persistence.PhanQuyenFinder" class="com.alpha.portlet.dmdc.service.persistence.PhanQuyenFinderImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.quy_hoach.service.BieuDoQuyHoachLocalService" class="com.alpha.portlet.quy_hoach.service.impl.BieuDoQuyHoachLocalServiceImpl" />
+	<bean id="com.alpha.portlet.quy_hoach.service.BieuDoQuyHoachService" class="com.alpha.portlet.quy_hoach.service.impl.BieuDoQuyHoachServiceImpl" />
+	<bean id="com.alpha.portlet.quy_hoach.service.persistence.BieuDoQuyHoachPersistence" class="com.alpha.portlet.quy_hoach.service.persistence.BieuDoQuyHoachPersistenceImpl" parent="basePersistence" />
+	<bean id="com.alpha.portlet.quy_hoach.service.persistence.BieuDoQuyHoachFinder" class="com.alpha.portlet.quy_hoach.service.persistence.BieuDoQuyHoachFinderImpl" parent="basePersistence" />
+</beans>

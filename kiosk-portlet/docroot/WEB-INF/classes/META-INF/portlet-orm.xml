@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.alpha.portlet.danh_muc.model.impl.LinhVucModelImpl">
+		<attributes>
+			<id name="linhVucId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="ten" />
+			<basic name="ma" />
+			<basic name="moTa" />
+			<basic name="hoatDong" />
+			<basic name="doUuTien" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.alpha.portlet.danh_muc.model.impl.LoaiHoSoModelImpl">
+		<attributes>
+			<id name="loaiHoSoId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="linhVucId" />
+			<basic name="ten" />
+			<basic name="ma" />
+			<basic name="moTa" />
+			<basic name="hoatDong" />
+			<basic name="doUuTien" />
+			<basic name="baiVietURL" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.alpha.portlet.danh_gia_hai_long.model.impl.CauHoiModelImpl">
+		<attributes>
+			<id name="cauHoiId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="ten" />
+			<basic name="ma" />
+			<basic name="moTa" />
+			<basic name="hoatDong" />
+			<basic name="doUuTien" />
+			<basic name="boCauHoi" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.alpha.portlet.danh_gia_hai_long.model.impl.DanhGiaHaiLongModelImpl">
+		<attributes>
+			<id name="danhGiaHaiLongId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="resourceCode" />
+			<basic name="resourcePK" />
+			<basic name="cauHoiId" />
+			<basic name="traLoiId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.alpha.portlet.danh_gia_hai_long.model.impl.TraLoiModelImpl">
+		<attributes>
+			<id name="traLoiId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="cauHoiId" />
+			<basic name="noiDung" />
+			<basic name="mucDoHaiLong" />
+			<basic name="diem" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.alpha.portlet.dmdc.model.impl.BieuMauBaoCaoModelImpl">
+		<attributes>
+			<id name="bieuMauBaoCaoId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="chuyenMucBieuMauId" />
+			<basic name="ten" />
+			<basic name="ma" />
+			<basic name="moTa" />
+			<basic name="loai" />
+			<basic name="hoatDong" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.alpha.portlet.dmdc.model.impl.CauHinhModelImpl">
+		<attributes>
+			<id name="cauHinhId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="portletId" />
+			<basic name="resourceCodeId" />
+			<basic name="primKey" />
+			<basic name="preferences" />
+			<basic name="type">
+				<column name="TYPE_" />
+			</basic>
+			<basic name="description" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.alpha.portlet.dmdc.model.impl.FileDinhKemModelImpl">
+		<id-class class="com.alpha.portlet.dmdc.service.persistence.FileDinhKemPK" />
+		<attributes>
+			<id name="resourceCode" />
+			<id name="primKey" />
+			<id name="fileEntryId" />
+			<basic name="nhanQuaMang" />
+			<basic name="extension" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.alpha.portlet.quy_hoach.model.impl.BieuDoQuyHoachModelImpl">
+		<attributes>
+			<id name="bieuDoQuyHoachId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="ten" />
+			<basic name="ma" />
+			<basic name="moTa" />
+			<basic name="urlFile" />
+			<basic name="hoatDong" />
+			<basic name="doUuTien" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.alpha.portlet.danh_muc.model.impl.LinhVucImpl" name="LinhVuc">
+		<table name="alpha_dm_linhvuc" />
+		<attributes />
+	</entity>
+	<entity class="com.alpha.portlet.danh_muc.model.impl.LoaiHoSoImpl" name="LoaiHoSo">
+		<table name="alpha_dm_loaihoso" />
+		<attributes />
+	</entity>
+	<entity class="com.alpha.portlet.danh_gia_hai_long.model.impl.CauHoiImpl" name="CauHoi">
+		<table name="alpha_dghl_cauhoi" />
+		<attributes />
+	</entity>
+	<entity class="com.alpha.portlet.danh_gia_hai_long.model.impl.DanhGiaHaiLongImpl" name="DanhGiaHaiLong">
+		<table name="alpha_dghl_danhgiahailong" />
+		<attributes />
+	</entity>
+	<entity class="com.alpha.portlet.danh_gia_hai_long.model.impl.TraLoiImpl" name="TraLoi">
+		<table name="alpha_dghl_traloi" />
+		<attributes />
+	</entity>
+	<entity class="com.alpha.portlet.dmdc.model.impl.BieuMauBaoCaoImpl" name="BieuMauBaoCao">
+		<table name="alpha_dm_bieumaubaocao" />
+		<attributes />
+	</entity>
+	<entity class="com.alpha.portlet.dmdc.model.impl.CauHinhImpl" name="CauHinh">
+		<table name="alpha_dm_cauhinh" />
+		<attributes />
+	</entity>
+	<entity class="com.alpha.portlet.dmdc.model.impl.FileDinhKemImpl" name="FileDinhKem">
+		<table name="alpha_dm_filedinhkem" />
+		<attributes />
+	</entity>
+	<entity class="com.alpha.portlet.quy_hoach.model.impl.BieuDoQuyHoachImpl" name="BieuDoQuyHoach">
+		<table name="alpha_bdqh_bieudoquyhoach" />
+		<attributes>
+			<transient name="tepTinDTOTemp" />
+		</attributes>
+	</entity>
+</entity-mappings>

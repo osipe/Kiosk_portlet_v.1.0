@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<custom-sql>
+	<sql id="com.alpha.portlet.dmdc.service.persistence.PhanQuyenFinder.findUsersByO_R_F">
+		<![CDATA[
+			SELECT DISTINCT ON (u.userId)*
+			FROM user_ AS u 
+			INNER JOIN users_orgs AS uo ON u.userId = uo.userId 
+			INNER JOIN usergrouprole AS ugr ON u.userId = ugr.userId 
+			WHERE uo.organizationid = ? AND
+				 ugr.roleid = ? AND
+				 u.status = ? AND
+				 (lower(TRIM(both ' ' from (TRIM(both ' ' from u.lastname)|| (CASE WHEN u.middlename IS NULL OR TRIM (both ' ' from u.middlename) = '' THEN ' ' ELSE ' ' || TRIM(both ' ' from u.middlename) || ' ' END) || TRIM(both ' ' from u.firstname)))) like ? [$AND_OR_NULL_CHECK$])
+		]]>
+	</sql>
+	<sql id="com.alpha.portlet.dmdc.service.persistence.PhanQuyenFinder.getCompanyId">
+		<![CDATA[
+			SELECT companyid as companyid
+			FROM company
+		]]>
+	</sql>
+</custom-sql>

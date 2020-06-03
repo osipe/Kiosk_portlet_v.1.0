@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.alpha.portlet.danh_gia_hai_long">
+	<author>darkn</author>
+	<namespace>DanhGiaHaiLong</namespace>
+
+	<entity name="CauHoi" local-service="true" remote-service="true" table="alpha_dghl_cauhoi">
+
+		<!-- PK fields -->
+
+		<column name="cauHoiId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="ten" type="String" />
+		<column name="ma" type="String" />
+		<column name="moTa" type="String" />
+		<column name="hoatDong" type="boolean" />
+		<column name="doUuTien" type="int" />
+		<column name="boCauHoi" type="int" />
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="cauHoiId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="GroupId_Ma" return-type="CauHoi">
+			<finder-column name="groupId" />
+			<finder-column name="ma" />
+		</finder>
+		<finder name="GroupId_HoatDong" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="hoatDong" />
+		</finder>
+		<finder name="GroupId_BoCauHoi_HoatDong" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="boCauHoi" />
+			<finder-column name="hoatDong" />
+		</finder>
+	</entity>
+	<entity name="TraLoi" local-service="true" remote-service="true" table="alpha_dghl_traloi">
+
+		<!-- PK fields -->
+
+		<column name="traLoiId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="cauHoiId" type="long" />
+		<column name="noiDung" type="String" />
+		<column name="mucDoHaiLong" type="int" />
+		<column name="diem" type="int" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="traLoiId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="CauHoiId" return-type="Collection">
+			<finder-column name="cauHoiId" />
+		</finder>
+	</entity>
+	<entity name="DanhGiaHaiLong" local-service="true" remote-service="true" table="alpha_dghl_danhgiahailong">
+
+		<!-- PK fields -->
+
+		<column name="danhGiaHaiLongId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+		<column name="resourceCode" type="long" />
+		<column name="resourcePK" type="long" />
+		<column name="cauHoiId" type="long" />
+		<column name="traLoiId" type="long" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="danhGiaHaiLongId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="ResourceCode_PK" return-type="Collection">
+			<finder-column name="resourceCode" />
+			<finder-column name="resourcePK" />
+		</finder>
+	</entity>
+</service-builder>

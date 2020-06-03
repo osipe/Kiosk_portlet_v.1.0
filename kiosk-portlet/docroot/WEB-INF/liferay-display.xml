@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN" "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
+
+<display>
+	<category name="category.sample">
+		<portlet id="01"></portlet>
+		<portlet id="02"></portlet>
+		<portlet id="03"></portlet>
+		<portlet id="04"></portlet>
+		<portlet id="05"></portlet>
+		<!-- Cấu hình cán bộ -->
+		<portlet id="06"></portlet>
+		<portlet id="11"></portlet>
+	</category>
+</display>

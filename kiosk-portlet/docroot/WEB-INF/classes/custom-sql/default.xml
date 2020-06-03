@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<custom-sql>
+	<sql file="custom-sql/cau_hoi.xml" />
+	<sql file="custom-sql/linh_vuc.xml" />
+	<sql file="custom-sql/loai_ho_so.xml" />
+	<sql file="custom-sql/bieu_do_quy_hoach.xml" />
+	<sql file="custom-sql/phan_quyen.xml" />
+</custom-sql>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<custom-sql>
+	<sql
+		id="com.alpha.portlet.quy_hoach.service.persistence.BieuDoQuyHoachFinder.findByNangCao">
+		<![CDATA[
+			SELECT  *
+			FROM alpha_bdqh_bieudoquyhoach
+			WHERE TRUE
+			AND (hoatdong = ?)
+			AND (ma = ?)
+			AND (LOWER(ten) LIKE ?)
+			AND (LOWER(mota) LIKE ?)
+		]]>
+	</sql>
+	<sql
+		id="com.alpha.portlet.quy_hoach.service.persistence.BieuDoQuyHoachFinder.countByNangCao">
+		<![CDATA[
+			SELECT  COUNT(1) as COUNT_VALUE
+			FROM alpha_bdqh_bieudoquyhoach
+			WHERE TRUE
+			AND (hoatdong = ?)
+			AND (ma = ?)
+			AND (LOWER(ten) LIKE ?)
+			AND (LOWER(mota) LIKE ?)
+		]]>
+	</sql>
+</custom-sql>

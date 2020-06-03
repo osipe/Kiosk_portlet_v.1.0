@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="nss-build-common-portlet" xmlns:antelope="antlib:ise.antelope.tasks">	
+		
+	<target name="0-clean-portal" depends="clean">
+		<if>
+			<equals arg1="${app.server.type}" arg2="jboss" />
+			<then>
+				<property name="plugin.deploy.dir" value="${app.server.deploy.dir}\${plugin.name}.war" />
+			</then>
+			<else>
+				<property name="plugin.deploy.dir" value="${app.server.deploy.dir}\${plugin.name}" />
+			</else>
+		</if>
+		<delete dir="${plugin.deploy.dir}" />
+	</target>
+	
+	<target name="0-compile-service">
+		<if>
+			<available file="docroot" />
+			<then>
+				<var name="service.base.dir" value="docroot/WEB-INF" />
+			</then>
+			<else>
+				<var name="service.base.dir" value="." />
+			</else>
+		</if>
+		
+		<if>
+			<available file="${service.base.dir}/service" />
+			<then>
+				<mkdir dir="${service.base.dir}/service-classes" />
+				
+				<path id="service.classpath">
+					<path refid="lib.classpath" />
+					<fileset dir="${app.server.lib.global.dir}" includes="*.jar" excludes="${plugin.name}-service.jar"/>
+					<fileset dir="${sdk.dir}/dependencies/aQute.bnd/lib" includes="*.jar" />
+					<fileset dir="${service.base.dir}/lib" excludes="${plugin.name}-service.jar" includes="*.jar" />
+				</path>
+				
+				<compile-java
+					javac.classpathref="service.classpath"
+					javac.destdir="${service.base.dir}/service-classes"
+					javac.srcdir="${service.base.dir}/service"
+				/>
+					
+				<jar
+					basedir="${service.base.dir}/service-classes"
+					destfile="${app.server.lib.global.dir}/${plugin.name}-service.jar"
+				/>
+			</then>
+		</if>
+	</target>
+	
+	
+	<target name="0-custom-jar-sup" depends="compile">
+		<if>
+			<available file="docroot/WEB-INF/classes" />
+			<then>
+				<zip basedir="docroot/WEB-INF/classes" destfile="docroot/WEB-INF/lib/${plugin.name}-impl.jar" excludes="rebel.xml,/META-INF/*spring.xml,/META-INF/*orm.xml,/META-INF/*hbm.xml,/META-INF/*hints.xml,/*.properties,resource/**" />
+				<delete includeEmptyDirs="true">
+					<fileset dir="docroot/WEB-INF/classes" excludes="rebel.xml,/META-INF/*spring.xml,/META-INF/*orm.xml,/META-INF/*hbm.xml,/META-INF/*hints.xml,/*.properties,resource/**" includes="**/*">
+					</fileset>
+				</delete>
+			</then>
+		</if>
+	</target>
+	
+	<target name="0-all-2">
+		<if>
+			<not>
+				<contains string="${plugin.name}" substring="api" />
+			</not>
+			<then>
+				<antcall target="0-clean-portal" />
+				<antcall target="0-compile-service" />
+				<antcall target="0-direct-deploy-xhtml" />
+			</then>
+		</if>
+	</target>
+	
+	<target name="0-direct-deploy-xhtml">
+		<antcall target="direct-deploy" />
+		<antcall target="0-direct-deploy-xhtml-sup" />
+	</target>
+	
+	<target name="0-direct-deploy-xhtml-sup">
+		<if>
+			 <equals arg1="${app.server.type}" arg2="jboss" />
+			 <then>
+			 	<property name="plugin.deploy.dir" value="${app.server.deploy.dir}\${plugin.name}.war" />
+			 </then>
+			<else>
+				<property name="plugin.deploy.dir" value="${app.server.deploy.dir}\${plugin.name}" />
+			</else>
+		</if>
+		<echo message="${plugin.deploy.dir}">
+		</echo>
+		<copy todir="${plugin.deploy.dir}" preservelastmodified="true" overwrite="true">
+			<fileset dir="docroot">
+				<include name="**/*.css" />
+				<include name="**/*.gif" />
+				<include name="**/*.jpg" />
+				<include name="**/*.js" />
+				<include name="**/*.jsp" />
+				<include name="**/*.jspf" />
+				<include name="**/*.png" />
+				<include name="**/*.properties" />
+				<include name="**/*.xhtml" />				
+				<exclude name="**/WEB-INF/src/**" />
+				<exclude name="**/WEB-INF/service/**" />				
+			</fileset>
+		</copy>
+		<delete dir="${app.server.deploy.dir}\${plugin.name}\WEB-INF\service" />
+		<delete dir="${app.server.deploy.dir}\${plugin.name}\WEB-INF\service-classes" />
+		<delete dir="${app.server.deploy.dir}\${plugin.name}\WEB-INF\src" />	
+	</target>
+	
+	<target name="0-custom-jar" depends="0-custom-jar-sup">
+		<if>
+			 <equals arg1="${app.server.type}" arg2="jboss" />
+			 <then>
+			 	<property name="plugin.deploy.dir" value="${app.server.deploy.dir}\${plugin.name}.war" />
+			 </then>
+			<else>
+				<property name="plugin.deploy.dir" value="${app.server.deploy.dir}\${plugin.name}" />
+			</else>
+		</if>
+		<copy todir="${plugin.deploy.dir}/WEB-INF/lib" preservelastmodified="true" overwrite="true">
+			<fileset dir="docroot/WEB-INF/lib">
+				<include name="*portlet-impl.jar" />
+			</fileset>
+		</copy>
+	</target>	
+	
+	<target name="0-direct-deploy-fast">
+		<if>
+			 <equals arg1="${app.server.type}" arg2="jboss" />
+			 <then>
+			 	<property name="plugin.deploy.dir" value="${app.server.deploy.dir}\${plugin.name}.war" />
+			 </then>
+			<else>
+				<property name="plugin.deploy.dir" value="${app.server.deploy.dir}\${plugin.name}" />
+			</else>
+		</if>
+		<echo message="${plugin.deploy.dir}">
+		</echo>
+		<copy todir="${plugin.deploy.dir}" preservelastmodified="true">
+			<fileset dir="docroot">
+				<include name="**/*.css" />
+				<include name="**/*.dtd" />
+				<include name="**/*.gif" />
+				<include name="**/*.jar" />
+				<include name="**/*.jpg" />
+				<include name="**/*.js" />
+				<include name="**/*.jsp" />
+				<include name="**/*.jspf" />
+				<include name="**/*.png" />
+				<include name="**/*.properties" />
+				<include name="**/*.tld" />
+				<include name="**/*.vm" />
+				<include name="**/*.xml" />
+				<include name="**/*.xhtml" />				
+				<exclude name="**/WEB-INF/src/**" />
+				<exclude name="**/WEB-INF/service/**" />				
+			</fileset>
+		</copy>
+		<delete dir="${app.server.deploy.dir}\${plugin.name}\WEB-INF\service" />
+		<delete dir="${app.server.deploy.dir}\${plugin.name}\WEB-INF\service-classes" />
+		<delete dir="${app.server.deploy.dir}\${plugin.name}\WEB-INF\src" />	
+	</target>	
+	
+	<path id="ascii2native.classpath">
+		<fileset dir="${sdk.dir}/lib" includes="ascii2native.jar" />
+		<fileset dir="${app.server.lib.portal.dir}" includes="dom4j.jar" />
+	</path>
+	
+	<target name="0-ascii2native">
+		<if>
+			<not>
+			<isset property="input.file" />
+			</not>
+			<then>
+				<property name="input.file" value="docroot/WEB-INF/src/content"/>
+			</then>
+		</if>
+		<java classname="com.nss.convertlanguage.ASCII2Native" classpathref="ascii2native.classpath">
+			<arg value="${input.file}"/>
+		</java>
+	</target>
+
+</project>

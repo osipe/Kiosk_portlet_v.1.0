@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.alpha.portlet.dmdc">
+	<author>darkn</author>
+	<namespace>dmdc</namespace>
+	
+	<entity name="FileDinhKem" local-service="true" remote-service="true" table="alpha_dm_filedinhkem">
+		<column name="resourceCode" type="long" primary="true" />
+		<column name="primKey" type="long" primary="true" />
+		<column name="fileEntryId" type="long" primary="true" />
+		<column name="nhanQuaMang" type="boolean" />
+		<column name="extension" type="String" />
+
+		<finder return-type="Collection" name="R_P">
+			<finder-column name="resourceCode" />
+			<finder-column name="primKey" />
+		</finder>
+		<finder return-type="Collection" name="FileEntryId">
+			<finder-column name="fileEntryId" />
+		</finder>
+		<finder return-type="FileDinhKem" name="R_P_F">
+			<finder-column name="resourceCode" />
+			<finder-column name="primKey" />
+			<finder-column name="fileEntryId" />
+		</finder>
+	</entity>
+	<entity name="BieuMauBaoCao" local-service="true" remote-service="true" table="alpha_dm_bieumaubaocao">
+		<!-- PK fields -->
+		<column name="bieuMauBaoCaoId" type="long" primary="true" />
+		<!--Group instance -->
+		<column name="groupId" type="long" />
+		<!--Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<!-- Other fields -->
+		<column name="chuyenMucBieuMauId" type="long" />
+		<column name="ten" type="String" />
+		<column name="ma" type="String" />
+		<column name="moTa" type="String" />
+		<column name="loai" type="int" />
+		<column name="hoatDong" type="boolean" />
+		<!-- Finder methods -->
+		<finder name="CompanyId_Ma" return-type="NhomTacVu">
+			<finder-column name="companyId" />
+			<finder-column name="ma" />
+		</finder>
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="CompanyId" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="GroupId_HoatDong" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="hoatDong" />
+		</finder>
+		<finder name="CompanyId_HoatDong" return-type="Collection">
+			<finder-column name="companyId" />
+			<finder-column name="hoatDong" />
+		</finder>
+		<finder name="ChuyenMucBieuMauId" return-type="Collection">
+			<finder-column name="chuyenMucBieuMauId" />
+		</finder>
+		<finder name="Loai" return-type="Collection">
+			<finder-column name="loai" />
+		</finder>
+		<!-- References -->
+	</entity>
+	
+	<entity name="CauHinh" local-service="true" remote-service="true"
+		table="alpha_dm_cauhinh">
+		<!-- PK fields -->
+		<column name="cauHinhId" type="long" primary="true" />
+		<!--Group instance -->
+		<column name="groupId" type="long" />
+		<!--Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<!-- Other fields -->
+		<column name="portletId" type="String" />
+		<column name="resourceCodeId" type="long" />
+		<column name="primKey" type="long" />
+		<column name="preferences" type="String" />
+		<column name="type" type="int" />
+		<column name="description" type="String" />
+		
+		<!-- Finder methods -->
+		<finder name="GroupId_PortletId" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="portletId" />
+		</finder>
+		<finder name="G_P_T" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="portletId" />
+			<finder-column name="type" />
+		</finder>
+		<finder name="GroupId_ResourceCodeId" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="resourceCodeId" />
+		</finder>
+		<finder name="G_R_T" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="resourceCodeId" />
+			<finder-column name="type" />
+		</finder>
+		<finder name="G_P_R" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="portletId" />
+			<finder-column name="resourceCodeId" />
+		</finder>
+		<finder name="P_R_T" return-type="Collection">
+			<finder-column name="portletId" />
+			<finder-column name="resourceCodeId" />
+			<finder-column name="type" />
+		</finder>
+		<finder name="C_P_R_T" return-type="Collection">
+			<finder-column name="companyId" />
+			<finder-column name="portletId" />
+			<finder-column name="resourceCodeId" />
+			<finder-column name="type" />
+		</finder>
+		<finder name="G_P_R_T" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="portletId" />
+			<finder-column name="resourceCodeId" />
+			<finder-column name="type" />
+		</finder>
+		<finder name="G_R_P" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="resourceCodeId" />
+			<finder-column name="primKey" />
+		</finder>
+		<finder name="G_R_P_T" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="resourceCodeId" />
+			<finder-column name="primKey" />
+			<finder-column name="type" />
+		</finder>
+		<finder name="G_P_R_P" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="portletId" />
+			<finder-column name="resourceCodeId" />
+			<finder-column name="primKey" />
+		</finder>
+		<finder name="G_P_R_P_T" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="portletId" />
+			<finder-column name="resourceCodeId" />
+			<finder-column name="primKey" />
+			<finder-column name="type" />
+		</finder>
+	</entity>
+	
+	<entity name="PhanQuyen" local-service="true" remote-service="true" />
+		
+</service-builder>

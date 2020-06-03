@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<hint-collection name="LENGTH_255">
+		<hint name="max-length">255</hint>
+	</hint-collection>
+	<model name="com.alpha.portlet.danh_muc.model.LinhVuc">
+		<field name="linhVucId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="ten" type="String" />
+		<field name="ma" type="String" />
+		<field name="moTa" type="String" />
+		<field name="hoatDong" type="boolean" />
+		<field name="doUuTien" type="int" />
+	</model>
+	<model name="com.alpha.portlet.danh_muc.model.LoaiHoSo">
+		<field name="loaiHoSoId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="linhVucId" type="long" />
+		<field name="ten" type="String" />
+		<field name="ma" type="String" />
+		<field name="moTa" type="String" />
+		<field name="hoatDong" type="boolean" />
+		<field name="doUuTien" type="int" />
+		<field name="baiVietURL" type="String" />
+	</model>
+	<model name="com.alpha.portlet.danh_gia_hai_long.model.CauHoi">
+		<field name="cauHoiId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="ten" type="String" />
+		<field name="ma" type="String" />
+		<field name="moTa" type="String" />
+		<field name="hoatDong" type="boolean" />
+		<field name="doUuTien" type="int" />
+		<field name="boCauHoi" type="int" />
+	</model>
+	<model name="com.alpha.portlet.danh_gia_hai_long.model.DanhGiaHaiLong">
+		<field name="danhGiaHaiLongId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="resourceCode" type="long" />
+		<field name="resourcePK" type="long" />
+		<field name="cauHoiId" type="long" />
+		<field name="traLoiId" type="long" />
+	</model>
+	<model name="com.alpha.portlet.danh_gia_hai_long.model.TraLoi">
+		<field name="traLoiId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="cauHoiId" type="long" />
+		<field name="noiDung" type="String" />
+		<field name="mucDoHaiLong" type="int" />
+		<field name="diem" type="int" />
+	</model>
+	<model name="com.alpha.portlet.dmdc.model.BieuMauBaoCao">
+		<field name="bieuMauBaoCaoId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="chuyenMucBieuMauId" type="long" />
+		<field name="ten" type="String" />
+		<field name="ma" type="String" />
+		<field name="moTa" type="String" />
+		<field name="loai" type="int" />
+		<field name="hoatDong" type="boolean" />
+	</model>
+	<model name="com.alpha.portlet.dmdc.model.CauHinh">
+		<field name="cauHinhId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="portletId" type="String" />
+		<field name="resourceCodeId" type="long" />
+		<field name="primKey" type="long" />
+		<field name="preferences" type="String" />
+		<field name="type" type="int" />
+		<field name="description" type="String" />
+	</model>
+	<model name="com.alpha.portlet.dmdc.model.FileDinhKem">
+		<field name="resourceCode" type="long" />
+		<field name="primKey" type="long" />
+		<field name="fileEntryId" type="long" />
+		<field name="nhanQuaMang" type="boolean" />
+		<field name="extension" type="String" />
+	</model>
+	<model name="com.alpha.portlet.quy_hoach.model.BieuDoQuyHoach">
+		<field name="bieuDoQuyHoachId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="ten" type="String">
+			<hint-collection name="LENGTH_255" />
+		</field>
+		<field name="ma" type="String" />
+		<field name="moTa" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="urlFile" type="String" />
+		<field name="hoatDong" type="boolean" />
+		<field name="doUuTien" type="int" />
+	</model>
+</model-hints>

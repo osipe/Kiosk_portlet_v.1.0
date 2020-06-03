@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="kiosk-portlet" basedir="." default="deploy">
+	<import file="../build-common-portlet.xml" />
+	
+	<target name="build-service-dmdc">
+		<antcall target="build-service">
+			<param name="service.input.file" value="docroot/WEB-INF/src/com/alpha/portlet/dmdc/service.xml" />
+		</antcall>
+	</target>
+	<target name="build-service-danh-muc">
+		<antcall target="build-service">
+			<param name="service.input.file" value="docroot/WEB-INF/src/com/alpha/portlet/danh_muc/service.xml" />
+		</antcall>
+	</target>
+	<target name="build-service-danh-gia-hai-long">
+		<antcall target="build-service">
+			<param name="service.input.file" value="docroot/WEB-INF/src/com/alpha/portlet/danh_gia_hai_long/service.xml" />
+		</antcall>
+	</target>
+	<target name="build-service-quy-hoach">
+		<antcall target="build-service">
+			<param name="service.input.file" value="docroot/WEB-INF/src/com/alpha/portlet/quy_hoach/service.xml" />
+		</antcall>
+	</target>
+</project>
